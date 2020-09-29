@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#7E000000"
     tools:context=".MainActivity">
 
     <ImageView
@@ -18,68 +19,198 @@
         app:srcCompat="@drawable/background" />
 
     <EditText
-        android:id="@+id/editText2"
-        android:layout_width="0dp"
+        android:id="@+id/editText"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginLeft="60dp"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp"
-        android:layout_marginEnd="60dp"
-        android:layout_marginRight="60dp"
         android:ems="10"
-        android:hint="Enter City Name..."
+        android:hint="Enter City Name"
         android:inputType="textPersonName"
-        android:textColor="@android:color/background_light"
-        android:textColorHint="@android:color/darker_gray"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textColor="#FFFFFF"
+        android:textColorHint="#D1D1D1"
+        android:textSize="30sp" />
 
     <Button
         android:id="@+id/button"
-        style="@style/Widget.AppCompat.Button.Borderless.Colored"
-        android:layout_width="0dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="100dp"
-        android:layout_marginRight="100dp"
-        android:layout_marginBottom="488dp"
+        android:layout_below="@id/editText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
         android:background="@android:color/holo_blue_dark"
         android:onClick="findweather"
-        android:rotation="0"
-        android:shadowDx="100"
-        android:shadowDy="100"
-        android:shadowRadius="10"
-        android:text="WEATHER"
-        android:textAllCaps="false"
-        android:textColor="#FFFFFF"
-        android:textSize="30sp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintCircleRadius="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+        android:text="Button"
+        android:textColor="#FBFBFB"
+        android:textSize="20sp" />
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="0dp"
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginRight="50dp"
-        android:background="#90090909"
-        android:textColor="@android:color/background_light"
-        android:textSize="30sp"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_below="@id/button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="#5B000000"
+        android:text="TextView"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/temperature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView4"
+        android:layout_alignParentLeft="false"
+        android:layout_marginTop="30dp"
+        android:layout_toLeftOf="@id/textView4"
+        android:background="#66000000"
+        android:text="Temprature"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/temperatureval"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView4"
+        android:layout_alignParentLeft="false"
+        android:layout_marginTop="30sp"
+        android:layout_toRightOf="@id/textView4"
+        android:background="#66000000"
+        android:text=""
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/clouds"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/temperature"
+        android:layout_alignParentLeft="false"
+        android:layout_marginTop="30dp"
+        android:layout_toLeftOf="@id/textView4"
+        android:background="#66000000"
+        android:text="Clouds"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/cloudsval"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/temperature"
+        android:layout_alignParentLeft="false"
+        android:layout_marginTop="30sp"
+        android:layout_toRightOf="@id/textView4"
+        android:background="#66000000"
+        android:text=""
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/latitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/clouds"
+        android:layout_alignParentLeft="false"
+        android:layout_marginTop="30dp"
+        android:layout_toLeftOf="@id/textView4"
+        android:background="#66000000"
+        android:text="Latitude"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/latitudeval"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/clouds"
+        android:layout_alignParentLeft="false"
+        android:layout_marginTop="30sp"
+        android:layout_toRightOf="@id/textView4"
+        android:background="#66000000"
+        android:text=""
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/longitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/latitude"
+        android:layout_alignParentLeft="false"
+        android:layout_marginTop="30dp"
+        android:layout_toLeftOf="@id/textView4"
+        android:background="#66000000"
+        android:text="Longitude"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/longitudeval"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/latitude"
+        android:layout_alignParentLeft="false"
+        android:layout_marginTop="30sp"
+        android:layout_toRightOf="@id/textView4"
+        android:background="#66000000"
+        android:text=""
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/visibility"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/longitude"
+        android:layout_alignParentLeft="false"
+        android:layout_marginTop="30dp"
+        android:layout_toLeftOf="@id/textView4"
+        android:background="#66000000"
+        android:text="Visibility"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/visibilityval"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/longitude"
+        android:layout_alignParentLeft="false"
+        android:layout_marginTop="30sp"
+        android:layout_toRightOf="@id/textView4"
+        android:background="#66000000"
+        android:text=""
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/timezone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/visibility"
+        android:layout_alignParentLeft="false"
+        android:layout_marginTop="30dp"
+        android:layout_toLeftOf="@id/textView4"
+        android:background="#66000000"
+        android:text="TimeZone"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/timezoneval"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/visibility"
+        android:layout_alignParentLeft="false"
+        android:layout_marginTop="30sp"
+        android:layout_toRightOf="@id/textView4"
+        android:background="#66000000"
+        android:text=""
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
+
+
+</RelativeLayout>

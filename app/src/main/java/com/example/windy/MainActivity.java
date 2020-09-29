@@ -27,7 +27,7 @@ import java.util.Iterator;
 public class MainActivity extends AppCompatActivity {
 
     EditText editText;
-    TextView textView;
+    TextView textView, tempView, cloudView, latView, lonView, visView, timeView, cityView;
 
 
 
@@ -36,8 +36,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        textView = findViewById(R.id.textView);
-        editText = findViewById(R.id.editText2);
+        editText = findViewById(R.id.editText);
+        tempView = findViewById(R.id.temperatureval);
+        cloudView = findViewById(R.id.cloudsval);
+        latView = findViewById(R.id.latitudeval);
+        lonView = findViewById(R.id.longitudeval);
+        visView = findViewById(R.id.visibilityval);
+        timeView = findViewById(R.id.timezoneval);
+        cityView = findViewById(R.id.textView4);
 
     }
 
@@ -74,27 +80,28 @@ public class MainActivity extends AppCompatActivity {
             }
             catch (Exception e){
                 e.printStackTrace();
-                return null;
+                return "";
             }
 
         }
 
         @Override
         protected void onPostExecute(String s) {
-            super.onPostExecute(s);
-
-            try{
+                super.onPostExecute(s);
+                String wcity, tempe , lat, lon, visible, time;
+                String clouds = null;
+                try{
                 JSONObject jsonObject = new JSONObject(s);
                 String weatherInfo = jsonObject.getString("weather");
                 JSONArray arr = new JSONArray(weatherInfo);
 
-                String msg= "";
+
                 String name = jsonObject.getString("name");
-                msg +="City : " + name+"\n";
+                wcity = name;
                 String main1 = jsonObject.getString("main");
                 String temp = main1.substring(8,10);
 
-                msg += "Temperature : "+temp+ " deg" +"\n";
+                tempe = temp+ " deg";
                 for(int i=0;i<arr.length();i++){
                     JSONObject jsonPart = arr.getJSONObject(i);
 
@@ -102,28 +109,35 @@ public class MainActivity extends AppCompatActivity {
                     String description = jsonPart.getString("description");
 
                     if(!main.equals("")&& !description.equals("")){
-                        msg += main+" : "+description + "\n";
+                        clouds = description;
                     }
 
                 }
 
                 String coordInfo = jsonObject.getString("coord");
                 String latitude = coordInfo.substring(7,12);
-                msg += "Latitude : "+latitude+"\n";
+                lat = latitude;
                 String longitude = coordInfo.substring(19,24);
-                msg += "Longitude : "+longitude+"\n";
+                lon = longitude;
 
 
                 String visibility = jsonObject.getString("visibility");
-                msg +="Visibility : " + visibility+"\n";
+                visible =visibility;
                 String timezone = jsonObject.getString("timezone");
-                msg +="Timezone : " + timezone+"\n";
+                time =timezone;
 
 
 
 
-                if(!msg.equals("")){
-                    textView.setText(msg);
+                if(!wcity.equals("") || !tempe.equals("")|| !clouds.equals("")|| !lat.equals("")|| !lon.equals("")|| !visible.equals("")|| !time.equals(""))
+                {
+                    cityView.setText(wcity);
+                    tempView.setText(tempe);
+                    cloudView.setText(clouds);
+                    latView.setText(lat);
+                    lonView.setText(lon);
+                    visView.setText(visible);
+                    timeView.setText(time);
                     textView.setVisibility(View.VISIBLE);
                 }
                 else {
@@ -145,9 +159,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void findweather(View view){
         Downloadtask task = new Downloadtask();
-        editText = (EditText)findViewById(R.id.editText2);
+        editText = (EditText)findViewById(R.id.editText);
         String city = editText.getText().toString();
-        task.execute("https://openweathermap.org/data/2.5/weather?q="+city+"&appid=b6907d289e10d714a6e88b30761fae22");
+        task.execute("https://api.openweathermap.org/data/2.5/weather?q="+city+"&appid=a26d9a475a4f262685d020cf32e5cbf1");
         InputMethodManager mgr =(InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         mgr.hideSoftInputFromWindow(editText.getWindowToken(),0);
     }
