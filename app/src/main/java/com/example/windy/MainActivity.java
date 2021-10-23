@@ -58,6 +58,15 @@ public class MainActivity extends AppCompatActivity {
             URL url;
             HttpURLConnection urlConnection = null;
 
+            public void findweather(View view){
+            Downloadtask task = new Downloadtask();
+            editText = (EditText)findViewById(R.id.editText);
+            String city = editText.getText().toString();
+            task.execute("https://api.openweathermap.org/data/2.5/weather?q="+city+"&appid=a26d9a475a4f262685d020cf32e5cbf1");
+            InputMethodManager mgr =(InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            mgr.hideSoftInputFromWindow(editText.getWindowToken(),0);
+        }
+
             try{
 
                 url = new URL(strings[0]);
@@ -139,6 +148,9 @@ public class MainActivity extends AppCompatActivity {
                     visView.setText(visible);
                     timeView.setText(time);
                     textView.setVisibility(View.VISIBLE);
+                    tempView = findViewById(R.id.temperatureval);
+                    cloudView = findViewById(R.id.cloudsval);
+                    latView = findViewById(R.id.latitudeval);
                 }
                 else {
                     Toast.makeText(getApplicationContext(),"Couldn't find weather",Toast.LENGTH_SHORT).show();
