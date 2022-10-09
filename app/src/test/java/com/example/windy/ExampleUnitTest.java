@@ -15,3 +15,9 @@ public class ExampleUnitTest {
         assertEquals(4, 2 + 2);
     }
 }
+public class NewExampleUnitTest {
+    @Test
+    public void addition_isCorrect() {
+        assertEquals(8, 6 + 2);
+    }
+}
