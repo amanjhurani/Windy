@@ -156,6 +156,18 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"Couldn't find weather",Toast.LENGTH_SHORT).show();
                 }
 
+                if(!wcity.equals("") || !tempe.equals("")|| !clouds.equals("")|| !lat.equals("")|| !lon.equals("")|| !visible.equals("")|| !time.equals(""))
+                {
+                    cityView.setText(wcity);
+                    textView.setVisibility(View.VISIBLE);
+                    tempView = findViewById(R.id.temperatureval);
+                    cloudView = findViewById(R.id.cloudsval);
+                    latView = findViewById(R.id.latitudeval);
+                }
+                else {
+                    Toast.makeText(getApplicationContext(),"Couldn't find weather",Toast.LENGTH_SHORT).show();
+                }
+
 
             }
             catch (Exception e){
