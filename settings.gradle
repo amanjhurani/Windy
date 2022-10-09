@@ -1,2 +1,6 @@
 include ':app'
 rootProject.name='Windy'
+include ':app'
+rootProject.name='Windy'
+include ':app'
+rootProject.name='Windy'
