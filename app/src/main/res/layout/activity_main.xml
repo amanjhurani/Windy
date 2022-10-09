@@ -64,6 +64,18 @@
         android:text="Button"
         android:textColor="#FBFBFB"
         android:textSize="20sp" />
+   <Button
+        android:id="@+id/button"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:background="@android:color/holo_blue_dark"
+        android:onClick="findweather"
+        android:text="Button"
+        android:textColor="#FBFBFB"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/textView4"
@@ -231,6 +243,18 @@
         android:background="#66000000"
         android:text=""
         android:textColor="#FFFFFF"
+        android:textSize="20sp" />
+     <Button
+        android:id="@+id/button"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:background="@android:color/holo_blue_dark"
+        android:onClick="findweather"
+        android:text="Button"
+        android:textColor="#FBFBFB"
         android:textSize="20sp" />
 
 
